@@ -1,7 +1,7 @@
 {
   "name": "nappjs-core-data-graphql",
   "description": "js-core-data-graphql schema plugin for nappjs",
-  "version": "0.2.10",
+  "version": "0.1.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,7 +14,8 @@
     "nappjs-graphql-api": "^0.3.0"
   },
   "scripts": {
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "patch-release":
+      "npm version patch && npm publish && git push --follow-tags",
     "test": "cd test && mocha ."
   },
   "devDependencies": {
