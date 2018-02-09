@@ -60,15 +60,15 @@ var NappJSGraphqlAPI = (function (_super) {
     }
     NappJSGraphqlAPI.prototype.load = function (napp) {
         return __awaiter(this, void 0, void 0, function () {
+            var schema;
             return __generator(this, function (_a) {
-                this.api.app.use(bodyParser.json());
-                this.api.app.post(GRAPHQL_API_PATH, CoreDataGraphql.graphql(this.coredata.database));
-                this.api.app.get(GRAPHQL_API_PATH, expressPlayground({ endpoint: GRAPHQL_API_PATH }));
+                schema = CoreDataGraphql.schema.getSchemaFromModel(this.coredata.database.model);
+                this.api.addSchema(schema);
                 return [2];
             });
         });
     };
-    NappJSGraphqlAPI.dependencies = ["nappjs-core-data", "nappjs-api"];
+    NappJSGraphqlAPI.dependencies = ["nappjs-core-data", "nappjs-graphql-api"];
     return NappJSGraphqlAPI;
 }(nappjs_1.NappJSService));
 exports.default = NappJSGraphqlAPI;
