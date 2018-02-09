@@ -11,7 +11,7 @@
     "graphql": "^0.13.0",
     "js-core-data-graphql": "^0.2.11",
     "nappjs-core-data": "^0.2.3",
-    "nappjs-graphql-api": "^0.3.2"
+    "nappjs-graphql-api": "^0.3.4"
   },
   "scripts": {
     "patch-release": "npm version patch && npm publish && git push --follow-tags",

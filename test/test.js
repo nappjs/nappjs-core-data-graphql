@@ -8,7 +8,10 @@ let test = null;
 
 describe("api", () => {
   before(async () => {
-    napp.addPlugin("nappjs-graphql-api", path.join(__dirname, "../index"));
+    napp.addPlugin(
+      "nappjs-core-data-graphql",
+      path.join(__dirname, "../index")
+    );
     await napp.load();
     let coredata = napp.getService("nappjs-core-data");
     let api = napp.getService("nappjs-api");

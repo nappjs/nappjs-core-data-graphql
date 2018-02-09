@@ -50,26 +50,25 @@ var CoreDataGraphql = require("js-core-data-graphql");
 var expressPlayground = require("graphql-playground-middleware").expressPlayground;
 var bodyParser = require("body-parser");
 var GRAPHQL_API_PATH = process.env.GRAPHQL_API_PATH || "/graphql";
-var NappJSGraphqlAPI = (function (_super) {
-    __extends(NappJSGraphqlAPI, _super);
-    function NappJSGraphqlAPI(coredata, api) {
-        var _this = _super.call(this) || this;
-        _this.coredata = coredata;
-        _this.api = api;
-        return _this;
+var NappJSCoreDataGraphql = (function (_super) {
+    __extends(NappJSCoreDataGraphql, _super);
+    function NappJSCoreDataGraphql() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    NappJSGraphqlAPI.prototype.load = function (napp) {
+    NappJSCoreDataGraphql.prototype.load = function (napp) {
         return __awaiter(this, void 0, void 0, function () {
-            var schema;
+            var coredata, api, graphql, schema;
             return __generator(this, function (_a) {
-                schema = CoreDataGraphql.schema.getSchemaFromModel(this.coredata.database.model);
-                this.api.addSchema(schema);
+                coredata = napp.getService("nappjs-core-data");
+                api = napp.getService("nappjs-api");
+                graphql = napp.getService("nappjs-graphql-api");
+                schema = CoreDataGraphql.schema.getSchemaFromModel(coredata.database.model);
+                graphql.addSchema(schema);
                 return [2];
             });
         });
     };
-    NappJSGraphqlAPI.dependencies = ["nappjs-core-data", "nappjs-graphql-api"];
-    return NappJSGraphqlAPI;
+    return NappJSCoreDataGraphql;
 }(nappjs_1.NappJSService));
-exports.default = NappJSGraphqlAPI;
+exports.default = NappJSCoreDataGraphql;
 //# sourceMappingURL=index.js.map
