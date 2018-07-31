@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "graphql": "^0.13.0",
-    "js-core-data-graphql": "^0.2.12",
+    "js-core-data-graphql": "^0.2.13",
     "nappjs-core-data": "^0.2.5",
     "nappjs-graphql-api": "^0.3.4"
   },
